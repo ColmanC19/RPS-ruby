@@ -2,15 +2,14 @@ class RPS
   def initialize
     @game_choice = (rand(3))
   end
-  def wins?(input)
-    if @game_choice == 0 && input == "paper"
-      true
-    elsif @game_choice == 1 && input == "scissors"
-      true
-    elsif input == "rock"
-      true
+  def wins(input)
+    choices = ["scissors", "paper", "rock"]
+    if choices[@game_choice - 1] == input
+      "you won"
+    elsif @game_choice == choices.index(input)
+      "you tied"
     else
-      false
+      "you lost"
     end
   end
 end
